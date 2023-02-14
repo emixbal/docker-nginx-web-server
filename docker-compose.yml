@@ -3,9 +3,10 @@ version: '3'
 services:
   nginx:
     image: nginx:1.21-alpine
-    container_name: nginx
+    container_name: nginx_web_server
     restart: unless-stopped
     ports:
-      - 80:80
+      - 3000:80
     volumes:
+      - ./src:/usr/share/nginx/html:ro
       - ./nginx:/etc/nginx/conf.d:delegated
